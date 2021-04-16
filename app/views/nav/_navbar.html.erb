@@ -14,11 +14,12 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Menu
+          Category
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Python</a>
-          <a class="dropdown-item" href="#">Ruby on Rails</a>
+          <% for menu in @menus %>
+            <%= link_to  "#{menu.word}", "#", class:"dropdown-item" %>
+          <% end %>
         </div>
       </li>
     </ul>
