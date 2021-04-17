@@ -10,21 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_16_131326) do
+ActiveRecord::Schema.define(version: 2021_04_17_052634) do
 
   create_table "menus", force: :cascade do |t|
     t.string "word"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
   end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "link_url"
-    t.integer "category_id"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "menu_id", null: false
+    t.index ["menu_id"], name: "index_posts_on_menu_id"
   end
 
+  add_foreign_key "posts", "menus"
 end

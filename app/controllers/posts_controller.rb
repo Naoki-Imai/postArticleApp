@@ -8,16 +8,24 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new
+    # params[:menu] = Integer(Post.new(params[:menu]))
+    @post = Post.new(posts_params)
     if @post.save
       redirect_to root_path
     else
+      flash[:error] = 
       render 'new'
     end
   end
 
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to root_path
+  end
+
   private
     def posts_params
-      params.require(:post).permit(:title, :link_url, :category_id, :content)
+      params.require(:post).permit(:title, :link_url, :menu_id, :content)
     end
 end
