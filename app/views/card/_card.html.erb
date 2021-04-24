@@ -11,33 +11,33 @@
           <p class="card-text">URL：<%= link_to "#{post.link_url}","#{post.link_url}" %></p>
           <p class="card-text">カテゴリー：<%= post.menu.word %></p>
           <%= link_to  "削除", post_path(post), method: :delete, data: { confirm: "削除しますか？"}, class: "btn btn-danger" %>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<%= post.id %>">
             詳細表示
           </button>
-
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel"><%= post.title %></h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <%= post.content%>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <%= link_to  "LINK", "#{post.link_url}", class: "btn btn-primary", target: "_blank" %>
-                </div>
+          <%= link_to  "編集", edit_post_path(post), class: "btn btn-success" %>
+        </div>
+        <div class="modal fade" id="exampleModal<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><%= post.title %></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <%= post.content%>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <%= link_to  "LINK", "#{post.link_url}", class: "btn btn-primary", target: "_blank" %>
               </div>
             </div>
           </div>
-          <%= link_to  "編集", edit_post_path(post), class: "btn btn-success" %>
         </div>
       </div>
     </div>
   </div>
 <% end %>
+
+          <!-- Modal -->

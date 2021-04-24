@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_04_17_052634) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "menu_id", null: false
+    t.integer "menu_id", null: false
     t.index ["menu_id"], name: "index_posts_on_menu_id"
   end
 
