@@ -5,12 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-3.times do |no|
-  Post.create(title: "test#{no}", content: "This is Test", menu_id: "1", link_url: "http://www.example.com")
-end
-3.times do |no|
-  Post.create(title: "test#{no}", content: "This is Test", menu_id: "2", link_url: "http://www.example.com")
-end
-3.times do |no|
-  Post.create(title: "test#{no}", content: "This is Test", menu_id: "3", link_url: "http://www.example.com")
-end
+
+
+Menu.create(word: "Ruby on Rails")
+Menu.create(word: "Python")
+Menu.create(word: "Linux")
+Menu.create(word: "Docker")
