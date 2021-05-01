@@ -3,7 +3,12 @@
     <div class="row no-gutters">
       <div class="col-md-4">
         <%# <img class="card-img-top" width="100%" height="250" src="assets/python.png"> %>
-        <%= image_tag "#{post.menu.image}", class: "img_size"%>
+        <% if post.menu.image? %>
+          <%= image_tag "#{post.menu.image}", class: "img_size"%>
+        <% else %>
+          <%= image_tag "no-photo.jpg", class: "img_size"%>
+        <% end %>
+        
       </div>
       <div class="col-md-8">
         <div class="card-body">
