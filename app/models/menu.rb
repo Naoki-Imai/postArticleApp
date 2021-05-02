@@ -1,4 +1,4 @@
 class Menu < ApplicationRecord
-  belongs_to :post, optional: true
-  mount_uploader :image, ImageUploader
+  belongs_to :post, optional: true, dependent: :destroy
+  attachment :image
 end

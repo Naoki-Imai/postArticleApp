@@ -23,6 +23,7 @@
           <% for menu in @menus %>
             <%= link_to  "#{menu.word}", menu_path(menu), class:"dropdown-item" %>
           <% end %>
+          <%= link_to  "View All", menus_path, class:"dropdown-item" %>
         </div>
       </li>
     </ul>

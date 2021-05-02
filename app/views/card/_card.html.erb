@@ -3,11 +3,7 @@
     <div class="row no-gutters">
       <div class="col-md-4">
         <%# <img class="card-img-top" width="100%" height="250" src="assets/python.png"> %>
-        <% if post.menu.image? %>
-          <%= image_tag "#{post.menu.image}", class: "img_size"%>
-        <% else %>
-          <%= image_tag "no-photo.jpg", class: "img_size"%>
-        <% end %>
+        <%= attachment_image_tag post.menu, :image, fallback: "no-photo.jpg", class: "img_size" %>
         
       </div>
       <div class="col-md-8">
@@ -31,7 +27,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <%= post.content%>
+                <p><%= simple_format post.content%></p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

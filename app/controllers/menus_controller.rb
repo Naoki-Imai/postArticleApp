@@ -1,4 +1,7 @@
 class MenusController < ApplicationController
+  def index
+    @menus = Menu.all
+  end
   def show
     @menu = Menu.find(params[:id])
     menu = @menu[:id]
@@ -29,6 +32,12 @@ class MenusController < ApplicationController
     else
       render "edit"
     end  
+  end
+
+  def destroy
+    menu = Menu.find(params[:id])
+    menu.destroy
+    redirect_to root_path
   end
 
   private

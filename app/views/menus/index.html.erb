@@ -1,0 +1,6 @@
+<ul>
+  <% for menu in @menus %>
+    <li><%= menu.word %></li>
+    <%= link_to  "削除", menu_path(menu), method: :delete %>
+  <% end %>
+</ul>
