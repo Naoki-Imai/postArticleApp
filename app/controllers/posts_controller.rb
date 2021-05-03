@@ -10,8 +10,10 @@ class PostsController < ApplicationController
     # params[:menu] = Integer(Post.new(params[:menu]))
     @post = Post.new(posts_params)
     if @post.save
+      flash[:notice] = "記事を登録しました"
       redirect_to root_path
     else
+      flash[:alert] = "エラーが発生しました"
       render 'new'
     end
   end
@@ -29,8 +31,10 @@ class PostsController < ApplicationController
   def update
     post = Post.find(params[:id])
     if post.update(posts_params)
+      flash[:notice] = "記事を更新しました"
       redirect_to root_path
     else
+      flash.now[:alert] = "エラーが発生しました"
       render "edit"
     end
   end

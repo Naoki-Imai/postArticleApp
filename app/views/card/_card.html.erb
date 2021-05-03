@@ -9,7 +9,7 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">記事タイトル：<%= post.title %></h5>
-          <p class="card-text">URL：<%= link_to "#{post.link_url}","#{post.link_url}" %></p>
+          <p class="card-text">URL：<%= link_to "#{post.link_url}","#{post.link_url}", target: "_blank" %></p>
           <p class="card-text">カテゴリー：<%= post.menu.word %></p>
           <%= link_to  "削除", post_path(post), method: :delete, data: { confirm: "削除しますか？"}, class: "btn btn-danger" %>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<%= post.id %>">

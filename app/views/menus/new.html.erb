@@ -1,5 +1,5 @@
-<%= render 'error/error' %>
 <%= form_for(@menu, method: :post ,multipart: true )do |f| %>
+  <%= render 'error/error', model: f.object %>
   <div class="form-group">
     <label>カテゴリー名</label>
     <%# <%= f.label :word, "カテゴリー名" %>

@@ -15,8 +15,10 @@ class MenusController < ApplicationController
   def create
     @menu = Menu.new(menu_params)
     if @menu.save
+      flash[:notice] = "カテゴリーを作成しました"
       redirect_to root_path
     else
+      flash.now[:alert] = "エラーが発生しました"
       render "new"
     end
   end
@@ -28,8 +30,10 @@ class MenusController < ApplicationController
   def update
     @menu = Menu.find(params[:id])
     if @menu.update(menu_params)
+      flash[:notice] = "カテゴリーを更新しました"
       redirect_to root_path
     else
+      flash.now[:alert] = "エラーが発生しました"
       render "edit"
     end  
   end
@@ -37,6 +41,7 @@ class MenusController < ApplicationController
   def destroy
     menu = Menu.find(params[:id])
     menu.destroy
+    flash[:notice] = "削除しました"
     redirect_to root_path
   end
 
